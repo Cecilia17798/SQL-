@@ -34,7 +34,7 @@ SELECT product_name
 FROM bank_products;
 
 
-SELECT product_name
+SELECT product_name, product_type
 FROM bank_products
 WHERE product_type='Checking'
 OR product_type='Savings' ;
