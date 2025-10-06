@@ -28,7 +28,7 @@ VALUES
 (15, 'Student Credit Card', 'Credit Card', 22.00, 5.00, 0.00, 'Designed for students.')
 ;
 
-#For this project, I followed the requests to show some results of product names
+#For this project, I used SQL to get information about products from Bank Products data and their properties
 
 SELECT product_name 
 FROM bank_products;
