@@ -1,3 +1,4 @@
+#This project utilizes the following Billing data:
 CREATE TABLE billing (
     patient_id INTEGER
   	, insurance_provider TEXT
@@ -21,27 +22,31 @@ VALUES
   , (390731, 'Insurance B', 80449, 'Glucose Tolerance Test', 150.00, 52.50, 0.00)
     ;
 
-
+#To overview the table in its fullness.
 SELECT *
 FROM billing; 
 
+#To calculate basic information about patient payments.
 SELECT patient_id
 , procedure_bill - payment_received AS payment_remaining
 FROM billing
 ;
 
+#To calculate the fraction of each patient payments remaining and organize it from low to high.
 SELECT patient_id, procedure_bill
 , payment_received / procedure_bill AS payment_fraction
 FROM billing 
 ORDER BY payment_fraction ASC
 ; 
 
+#To calculate the percentage of each patient payments remaining.
 SELECT patient_id, procedure_bill
 , payment_received / procedure_bill AS payment_fraction, 
 ROUND ((payment_received / procedure_bill)*100, 1) AS payment_percent
 FROM billing
 ; 
 
+#An example to use the CASE statement for each patient to classify the payment statuses.
 SELECT patient_id, 
 payment_received / procedure_bill AS payment_fraction,
 CASE
